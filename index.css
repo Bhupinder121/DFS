@@ -28,32 +28,31 @@
     margin-right: 30px;
 }
 
+.graphic{
+    position: absolute;
+    border: 2px solid black;
+    top: 45%;
+    left: 45%;
+    max
+}
+
 svg{
-    position: relative;
+    
 }
 
 
 #svg1{
-    top: var(--svgposx);
-    left: calc(var(--svgposy) * 2);
+    /* position: relative; */
+    top: 100px;
 }
 
 #svg2{
-    top: calc(var(--svgposx) + 250px);
-    left: calc(var(--svgposy) + 100px);
 }
 
-#svg3{
-    top: calc(var(--svgposx) + 113px);
-    left: calc(var(--svgposy) * 2);
-}
+#svg3{}
 
 #svg4{
-    top: calc(var(--svgposx) + 113px);
-    left: var(--svgposy);
 }
 
 #svg5{
-    top: calc(var(--svgposx) + 250px);
-    left: calc(var(--svgposy) + 100px);
 }
