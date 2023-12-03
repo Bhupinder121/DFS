@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.js"></script>
+    <script src="icons.js"></script>
+    <style>
+        body, html{
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+    <script>
+        function preload(){
+            img1 = loadImage("client-server-icon.png");
+            img2 = loadImage("computer-laptop-icon.png");
+            img3 = loadImage("cpu-server-icon.png");
+            img4 = loadImage("database-icon.png");
+            img5 = loadImage("pc-icon.png");
+        }
+        function setup(){
+            createCanvas(windowWidth, windowHeight);
+            background(255);
+            let size1 = (25/width) * width
+            let scl = 1;
+
+
+            let icon1 = new Icon(img1, 0.0625 * width, 0.33 * height, 50, 50, 80, 130);
+            // let icon2 = new Icon(img2, 0.425 * width, 0.06 * height)
+
+            let img1pos = createVector(0.0625 * width, 0.33 * height);
+            let img2pos = createVector(0.425 * width, 0.06 * height);
+            let img3pos = createVector(0.75 * width, 0.33 * height);
+            let img4pos = createVector(0.25 * width, 0.73 * height);
+            let img5pos = createVector(0.675 * width, 0.73 * height);
+
+            // console.log(img5pos.y/height)
+
+            image(img1, img1pos.x, img1pos.y, 50 * scl, 50 * scl);
+            image(img2, img2pos.x, img2pos.y, 50 * scl, 35 * scl);
+            image(img3, img3pos.x, img3pos.y, 42 * scl, 50 * scl);
+            image(img4, img4pos.x, img4pos.y, 42 * scl, 50 * scl);
+            image(img5, img5pos.x, img5pos.y, 50 * scl, 42 * scl);
+
+            line(80, 130, 195, 60);
+            line(80, 130, 290, 130);
+            line(80, 130, 110, 210);
+            line(80, 130, 260, 210);
+
+            line(195, 60, 290, 130);
+            line(195, 60, 110, 210);
+            line(195, 60, 260, 210);
+
+            line(290, 130, 110, 210);
+            line(290, 130, 260, 210);
+
+            line(110, 210, 260, 210);
+        }
+        
+        
+    </script>
+</head>
+<body>
+    
+
+</body>
+</html>

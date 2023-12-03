@@ -72,8 +72,8 @@ svg{
     position: absolute;
     display: block;
     border: 2px solid limegreen;
-    width: 300px;
-    rotate: -33deg;
-    top: 40%;
-    left: 32%;
+    width: 100px;
+    rotate: -50deg;
+    top: 17%;
+    left: 23%;
 }
