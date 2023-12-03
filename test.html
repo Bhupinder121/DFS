@@ -21,46 +21,58 @@
             img3 = loadImage("cpu-server-icon.png");
             img4 = loadImage("database-icon.png");
             img5 = loadImage("pc-icon.png");
+            mouseImg = loadImage("database-icon.png");
         }
         function setup(){
             createCanvas(windowWidth, windowHeight);
             background(255);
             let size1 = (25/width) * width
             let scl = 1;
+            let icons = []
 
 
-            let icon1 = new Icon(img1, 0.0625 * width, 0.33 * height, 50, 50, 80, 130);
-            // let icon2 = new Icon(img2, 0.425 * width, 0.06 * height)
-
-            let img1pos = createVector(0.0625 * width, 0.33 * height);
-            let img2pos = createVector(0.425 * width, 0.06 * height);
-            let img3pos = createVector(0.75 * width, 0.33 * height);
-            let img4pos = createVector(0.25 * width, 0.73 * height);
-            let img5pos = createVector(0.675 * width, 0.73 * height);
+            icons.push(new Icon(img1, 0.0625 * width, 0.33 * height, 50, 50, 80, 130));
+            icons.push(new Icon(img2, 0.425 * width, 0.06 * height, 50, 35, 195, 60));
+            icons.push(new Icon(img3, 0.75 * width, 0.33 * height, 42, 50, 290, 130));
+            icons.push(new Icon(img4, 0.25 * width, 0.73 * height, 42, 50, 110, 210));
+            icons.push(new Icon(img5, 0.675 * width, 0.73 * height, 50, 42, 260, 210));
+            icons.push(new Icon(mouseImg, 100, 100, 42, 50, 165, 110))
 
             // console.log(img5pos.y/height)
+            for(let i = 0; i < icons.length; i++){
+                image(icons[i].img, icons[i].pos.x, icons[i].pos.y, icons[i].sizeX, icons[i].sizeY);
+                fill(0);
+                ellipse(icons[i].connectX, icons[i].connectY, 8);
+            }
+            
+            
 
-            image(img1, img1pos.x, img1pos.y, 50 * scl, 50 * scl);
-            image(img2, img2pos.x, img2pos.y, 50 * scl, 35 * scl);
-            image(img3, img3pos.x, img3pos.y, 42 * scl, 50 * scl);
-            image(img4, img4pos.x, img4pos.y, 42 * scl, 50 * scl);
-            image(img5, img5pos.x, img5pos.y, 50 * scl, 42 * scl);
+            for(let i = 0; i < icons.length-1; i++){
+                for(let j = i+1; j < icons.length; j++){
+                    line(icons[i].connectX, icons[i].connectY, icons[j].connectX, icons[j].connectY);
+                }
+            }
 
-            line(80, 130, 195, 60);
-            line(80, 130, 290, 130);
-            line(80, 130, 110, 210);
-            line(80, 130, 260, 210);
+            // line(80, 130, 195, 60);
+            // line(80, 130, 290, 130);
+            // line(80, 130, 110, 210);
+            // line(80, 130, 260, 210);
 
-            line(195, 60, 290, 130);
-            line(195, 60, 110, 210);
-            line(195, 60, 260, 210);
+            // line(195, 60, 290, 130);
+            // line(195, 60, 110, 210);
+            // line(195, 60, 260, 210);
 
-            line(290, 130, 110, 210);
-            line(290, 130, 260, 210);
+            // line(290, 130, 110, 210);
+            // line(290, 130, 260, 210);
 
-            line(110, 210, 260, 210);
+            // line(110, 210, 260, 210);
         }
-        
+        function mousePressed(){
+            icons[5].pos.x = mouse.x;
+            icons[5].pos.y = mouse.y;
+            icons[5].connectX = mouse.x + 100;
+            icons[5].connectY = mouse.y - 19;
+        }
         
     </script>
 </head>
