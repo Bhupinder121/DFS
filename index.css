@@ -29,7 +29,7 @@
 }
 
 #desgin{
-    border: 2px red solid;
+    /* border: 2px red solid; */
     width: min-content;
     position: absolute;
     right: 0%;
@@ -52,6 +52,7 @@
     margin: 2rem;
     width: 50%;
     font-family: "Poppions", sans-serif;
+    font-size: 2.5rem;
 }
 
 

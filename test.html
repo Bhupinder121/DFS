@@ -16,6 +16,10 @@
     </style>
     <script>
         let icons = []
+        let iconSize = 1.50;
+        let prg = 0.01;
+
+
         function preload(){
             img1 = loadImage("client-server-icon.png");
             img2 = loadImage("computer-laptop-icon.png");
@@ -26,48 +30,46 @@
         }
         function setup(){
             createCanvas(windowWidth, windowHeight);
-            background(255);
-            let iconSize = 1.50;
+    
             icons = []
-
 
             icons.push(new Icon(img1, 0.0625 * width, 0.33 * height, 50 * iconSize, 50 * iconSize, 120, 190));
             icons.push(new Icon(img2, 0.425 * width, 0.06 * height, 50 * iconSize, 35 * iconSize, 250, 100));
-            icons.push(new Icon(img3, 0.75 * width, 0.33 * height, 42 * iconSize, 50 * iconSize, 365, 200));
+            icons.push(new Icon(img3, 0.80 * width, 0.33 * height, 42 * iconSize, 50 * iconSize, 380, 190));
             icons.push(new Icon(img4, 0.25 * width, 0.73 * height, 42 * iconSize, 50 * iconSize, 160, 310));
             icons.push(new Icon(img5, 0.675 * width, 0.73 * height, 50 * iconSize, 42 * iconSize, 360, 320));
-            
-            for(let i = 0; i < icons.length; i++){
-                image(icons[i].img, icons[i].pos.x, icons[i].pos.y, icons[i].sizeX, icons[i].sizeY);
-                fill(0);
-                ellipse(icons[i].connectX, icons[i].connectY, 8);
-            }
-            
-            
 
-            for(let i = 0; i < icons.length-1; i++){
-                for(let j = i+1; j < icons.length; j++){
-                    line(icons[i].connectX, icons[i].connectY, icons[j].connectX, icons[j].connectY);
-                }
-            }
-
-            // line(80, 130, 195, 60);
-            // line(80, 130, 290, 130);
-            // line(80, 130, 110, 210);
-            // line(80, 130, 260, 210);
-
-            // line(195, 60, 290, 130);
-            // line(195, 60, 110, 210);
-            // line(195, 60, 260, 210);
-
-            // line(290, 130, 110, 210);
-            // line(290, 130, 260, 210);
-
-            // line(110, 210, 260, 210);
         }
         
         function draw(){
+            background(255);
+            fill(0);
+            stroke(0);
+
+            for(let i = 0; i < icons.length; i++){
+                image(icons[i].img, icons[i].pos.x, icons[i].pos.y, icons[i].sizeX, icons[i].sizeY);
+                
+                
+                ellipse(icons[i].connectX, icons[i].connectY, 8);
+            }
             
+            for(let i = 0; i < icons.length-1; i++){
+                for(let j = i+1; j < icons.length; j++){
+                    line(icons[i].connectX, icons[i].connectY, icons[j].connectX, icons[j].connectY);
+                    let lerpX = lerp(icons[i].connectX, icons[j].connectX, prg);
+                    let lerpY = lerp(icons[i].connectY, icons[j].connectY, prg);
+                    fill(0, 255, 0);
+                    push();
+                    noStroke();
+                    ellipse(lerpX, lerpY, 6);
+                    pop();
+                }
+            }
+            prg += 0.01;
+            if(prg > 1){
+                prg = 0;
+            }
+
         }
         
     </script>
