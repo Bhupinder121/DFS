@@ -38,22 +38,30 @@
 
 .circle{
     display: block;
-    width: 10rem;
-    height: 10rem;
+    width: 15rem;
+    height: 15rem;
     background-color: yellow;
     opacity: 50%;
     border-radius: 100%;
-    position: relative;
+    position: absolute;
     top: -50px;
     left: -50px;
     z-index: -1;
 }
+.stream{
+    margin: 2rem;
+    width: 50%;
+    font-family: "Poppions", sans-serif;
+}
+
+
+
 
 .navbar{
-    border: red solid 2px;
 }
 
 .title{
     font-family: "Poppions", sans-serif;
     font-weight: bolder;
 }
+

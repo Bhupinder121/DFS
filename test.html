@@ -27,19 +27,16 @@
         function setup(){
             createCanvas(windowWidth, windowHeight);
             background(255);
-            let size1 = (25/width) * width
-            let scl = 1;
+            let iconSize = 1.50;
             icons = []
 
 
-            icons.push(new Icon(img1, 0.0625 * width, 0.33 * height, 50, 50, 80, 130));
-            icons.push(new Icon(img2, 0.425 * width, 0.06 * height, 50, 35, 195, 60));
-            icons.push(new Icon(img3, 0.75 * width, 0.33 * height, 42, 50, 290, 130));
-            icons.push(new Icon(img4, 0.25 * width, 0.73 * height, 42, 50, 110, 210));
-            icons.push(new Icon(img5, 0.675 * width, 0.73 * height, 50, 42, 260, 210));
-            // icons.push(new Icon(mouseImg, 100, 100, 42, 50, 165, 110))
-
-            // console.log(img5pos.y/height)
+            icons.push(new Icon(img1, 0.0625 * width, 0.33 * height, 50 * iconSize, 50 * iconSize, 120, 190));
+            icons.push(new Icon(img2, 0.425 * width, 0.06 * height, 50 * iconSize, 35 * iconSize, 250, 100));
+            icons.push(new Icon(img3, 0.75 * width, 0.33 * height, 42 * iconSize, 50 * iconSize, 365, 200));
+            icons.push(new Icon(img4, 0.25 * width, 0.73 * height, 42 * iconSize, 50 * iconSize, 160, 310));
+            icons.push(new Icon(img5, 0.675 * width, 0.73 * height, 50 * iconSize, 42 * iconSize, 360, 320));
+            
             for(let i = 0; i < icons.length; i++){
                 image(icons[i].img, icons[i].pos.x, icons[i].pos.y, icons[i].sizeX, icons[i].sizeY);
                 fill(0);
@@ -68,25 +65,9 @@
 
             // line(110, 210, 260, 210);
         }
-        function mousePressed(){
-            icons[5].pos.x = mouseX;
-            icons[5].pos.y = mouseY;
-            icons[5].connectX = mouseX + 100;
-            icons[5].connectY = mouseY - 19;
-            background(255);
-            for(let i = 0; i < icons.length; i++){
-                image(icons[i].img, icons[i].pos.x, icons[i].pos.y, icons[i].sizeX, icons[i].sizeY);
-                fill(0);
-                ellipse(icons[i].connectX, icons[i].connectY, 8);
-            }
+        
+        function draw(){
             
-            
-
-            for(let i = 0; i < icons.length-1; i++){
-                for(let j = i+1; j < icons.length; j++){
-                    line(icons[i].connectX, icons[i].connectY, icons[j].connectX, icons[j].connectY);
-                }
-            }
         }
         
     </script>
