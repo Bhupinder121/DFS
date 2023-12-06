@@ -36,4 +36,24 @@
     bottom: 0%;
 }
 
+.circle{
+    display: block;
+    width: 10rem;
+    height: 10rem;
+    background-color: yellow;
+    opacity: 50%;
+    border-radius: 100%;
+    position: relative;
+    top: -50px;
+    left: -50px;
+    z-index: -1;
+}
 
+.navbar{
+    border: red solid 2px;
+}
+
+.title{
+    font-family: "Poppions", sans-serif;
+    font-weight: bolder;
+}
