@@ -1,6 +1,8 @@
-const app = require('express')();
-
+const express = require('express');
+const app = express();
 const PORT = 300;
+
+app.use(express.static("D:/Projects/website/DFS/frontend"))
 
 app.get('/', (req, res)=>{
     console.log("new connection");
