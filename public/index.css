@@ -32,7 +32,7 @@
     /* border: 2px red solid; */
     width: min-content;
     position: absolute;
-    right: -2%;
+    right:0%;
     bottom: 0%;
 }
 
@@ -94,7 +94,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(254, 126, 126, 0.7);
+    background: rgba(63, 63, 63, 0.438);
     transition: all 0.4s;
     visibility: hidden;
     opacity: 0;
@@ -102,9 +102,10 @@
 .content {
     position: absolute;
     background: white;
-    width: 400px;
     padding: 1em 2em;
     border-radius: 4px;
+    /* display: flex;
+    justify-content: center; */
 } 
 .modal:target {
     visibility: visible;
@@ -114,7 +115,33 @@
     position: absolute;
     top: 0;
     right: 15px;
-    color: #fe0606;
+    color: #000000;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 25px;
+    font-family: "Poppions", sans-serif;
+}
+
+
+.content input{
+    border-radius: 30px 30px 30px 30px;
+    margin: 10px; 
+    width: 195px;
+    height: 35px;
+    border: none;
+    background-color: white;
+    text-align: center;
+    box-shadow: -2px 2px 1px 1px;
+    font-family: "Poppions", sans-serif;
+}
+#loginBtn{
+    width: 201px;
+    background-color: yellow;
+    color: black;
+}
+.line{
+    display: block;
+    position: absolute;
+    width: 100%;
+    bottom: 10%;
+    border: #0000004b 0.1em solid;
 }

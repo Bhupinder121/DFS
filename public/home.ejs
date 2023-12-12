@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <style>
+        .collection{
+            padding: 1rem;
+            display: flex;
+            gap: 2rem;            
+            flex-wrap: wrap;
+            /* justify-content: space-between; */
+            padding-bottom: 3rem;
+        }
+        .file-container{
+            position: relative;
+            display: flex;
+            aspect-ratio: 1/0.75;
+            width: fit-content;
+            align-items: center;
+            justify-content: center;
+            float: left;
+            /* flex: 1; */
+        }
+
+        .file-container > img{
+            width: 120px;
+            margin: 1.5rem;
+        }
+        .file-container > span{
+            position: absolute;
+            bottom: 0%;
+        }
+        .addButton > button{
+            width: 150px;
+            position: fixed;
+            aspect-ratio: 1/0.25;
+            border: none;
+            border-radius: 20px;
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            float: right;
+            background-color: rgb(12, 247, 12);
+            margin: 10px;
+            color: aliceblue;
+            bottom: 0%;
+            right: 0%;
+        }
+        .profile{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .profile > span {
+            text-align: center;
+            height: fit-content;
+            margin-left: 10px;
+        }
+        .circle{
+            padding-top: 11px;
+            padding-left: 7px;
+            padding-right: 7px;
+            display: flex;
+            width: 40px;
+            aspect-ratio: 1/1;
+            border: 1px black solid;
+            border-radius: 100%;
+            align-items: center;
+            overflow: hidden;
+        }
+        .circle > img{
+            width: 40px;
+            padding-right: 1rem;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="profile">
+        <div class="circle">
+            <img src="male-icon.png" alt="icon" srcset="">
+        </div>
+        
+        <span>Username</span>
+    </div>
+    <div class="collection">
+        <div class="file-container" id="file1">
+            <img src="open-folder-outline-icon.png" alt="folder" >
+            <span>file1</span>
+        </div>
+        <div class="file-container" id="file2">
+            <img src="open-folder-outline-icon.png" alt="folder" >
+            <span>file1</span>
+        </div>
+        <div class="file-container" id="file3">
+            <img src="open-folder-outline-icon.png" alt="folder" >
+            <span>file1</span>
+        </div>
+        <div class="file-container" id="file4">
+            <img src="open-folder-outline-icon.png" alt="folder" >
+            <span>file1</span>
+        </div>
+        <div class="file-container" id="file5">
+            <img src="open-folder-outline-icon.png" alt="folder" >
+            <span>file1</span>
+        </div>
+        <div class="file-container" id="file5">
+            <img src="open-folder-outline-icon.png" alt="folder" >
+            <span>file1</span>
+        </div>
+        <div class="file-container" id="file5">
+            <img src="open-folder-outline-icon.png" alt="folder" >
+            <span>file1</span>
+        </div>
+        <div class="file-container" id="file5">
+            <img src="open-folder-outline-icon.png" alt="folder" >
+            <span>file1</span>
+        </div>
+        <div class="file-container" id="file5">
+            <img src="open-folder-outline-icon.png" alt="folder" >
+            <span>file1</span>
+        </div>
+        <div class="file-container" id="file5">
+            <img src="open-folder-outline-icon.png" alt="folder" >
+            <span>file1</span>
+        </div>
+        <div class="file-container" id="file5">
+            <img src="open-folder-outline-icon.png" alt="folder" >
+            <span>file1</span>
+        </div>
+        <div class="file-container" id="file5">
+            <img src="open-folder-outline-icon.png" alt="folder" >
+            <span>file1</span>
+        </div>
+        <div class="file-container" id="file5">
+            <img src="open-folder-outline-icon.png" alt="folder" >
+            <span>file1</span>
+        </div>
+        <div class="file-container" id="file5">
+            <img src="open-folder-outline-icon.png" alt="folder" >
+            <span>file1</span>
+        </div>
+        <div class="file-container" id="file5">
+            <img src="open-folder-outline-icon.png" alt="folder" >
+            <span>file1</span>
+        </div>
+        <div class="file-container" id="file5">
+            <img src="open-folder-outline-icon.png" alt="folder" >
+            <span>file1</span>
+        </div>
+        <div class="file-container" id="file5">
+            <img src="open-folder-outline-icon.png" alt="folder" >
+            <span>file1</span>
+        </div>
+        <div class="file-container" id="file5">
+            <img src="open-folder-outline-icon.png" alt="folder" >
+            <span>file1</span>
+        </div>
+        <div class="file-container" id="file5">
+            <img src="open-folder-outline-icon.png" alt="folder" >
+            <span>file1</span>
+        </div>
+        <div class="file-container" id="file5">
+            <img src="open-folder-outline-icon.png" alt="folder" >
+            <span>file1</span>
+        </div>
+        <div class="file-container" id="file5">
+            <img src="open-folder-outline-icon.png" alt="folder" >
+            <span>file1</span>
+        </div>
+    </div>
+    <div class="addButton">
+        <button>+  Add</button>
+    </div>
+</body>
+</html>
