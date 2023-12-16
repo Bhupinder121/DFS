@@ -15,12 +15,11 @@
     "did-resolver": "^4.1.0",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "express-status-monitor": "^1.3.4",
+    "express-status-monitor": "^1.2.3",
     "helia": "^2.1.0",
     "ipfs": "^0.66.1",
     "ipfs-http-client": "^60.0.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Bhupinder121/DFS.git"

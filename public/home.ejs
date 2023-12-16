@@ -1,180 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Poppins"
+    />
     <style>
-        .collection{
-            padding: 1rem;
-            display: flex;
-            gap: 2rem;            
-            flex-wrap: wrap;
-            /* justify-content: space-between; */
-            padding-bottom: 3rem;
-        }
-        .file-container{
-            position: relative;
-            display: flex;
-            aspect-ratio: 1/0.75;
-            width: fit-content;
-            align-items: center;
-            justify-content: center;
-            float: left;
-            /* flex: 1; */
-        }
+      .collection {
+        padding: 1rem;
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        /* justify-content: space-between; */
+        padding-bottom: 3rem;
+      }
+      .file-container {
+        position: relative;
+        display: flex;
+        aspect-ratio: 1/0.75;
+        width: fit-content;
+        align-items: center;
+        justify-content: center;
+        float: left;
+        /* flex: 1; */
+      }
 
-        .file-container > img{
-            width: 120px;
-            margin: 1.5rem;
-        }
-        .file-container > span{
-            position: absolute;
-            bottom: 0%;
-        }
-        .addButton > button{
-            width: 150px;
-            position: fixed;
-            aspect-ratio: 1/0.25;
-            border: none;
-            border-radius: 20px;
-            text-align: center;
-            font-family: "Poppins", sans-serif;
-            font-size: 20px;
-            font-weight: bold;
-            float: right;
-            background-color: rgb(12, 247, 12);
-            margin: 10px;
-            color: aliceblue;
-            bottom: 0%;
-            right: 0%;
-        }
-        .profile{
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
-        .profile > span {
-            text-align: center;
-            height: fit-content;
-            margin-left: 10px;
-        }
-        .circle{
-            padding-top: 11px;
-            padding-left: 7px;
-            padding-right: 7px;
-            display: flex;
-            width: 40px;
-            aspect-ratio: 1/1;
-            border: 1px black solid;
-            border-radius: 100%;
-            align-items: center;
-            overflow: hidden;
-        }
-        .circle > img{
-            width: 40px;
-            padding-right: 1rem;
-        }
-
+      .file-container > img {
+        width: 120px;
+        margin: 1.5rem;
+      }
+      .file-container > span {
+        position: absolute;
+        bottom: 0%;
+      }
+      .addButton {
+        width: 150px;
+        position: fixed;
+        aspect-ratio: 1/0.25;
+        border: none;
+        border-radius: 20px;
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        float: right;
+        background-color: rgb(12, 247, 12);
+        margin: 10px;
+        color: aliceblue;
+        bottom: 0%;
+        right: 0%;
+      }
+      .profile {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      .profile > span {
+        text-align: center;
+        height: fit-content;
+        margin-left: 10px;
+      }
+      .circle {
+        padding-top: 11px;
+        padding-left: 7px;
+        padding-right: 7px;
+        display: flex;
+        width: 40px;
+        aspect-ratio: 1/1;
+        border: 1px black solid;
+        border-radius: 100%;
+        align-items: center;
+        overflow: hidden;
+      }
+      .circle > img {
+        width: 40px;
+        padding-right: 1rem;
+      }
     </style>
-</head>
-<body>
+    <style>
+      .modal {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(63, 63, 63, 0.438);
+        transition: all 0.4s;
+        visibility: hidden;
+        opacity: 0;
+      }
+      .content {
+        position: absolute;
+        background: white;
+        padding: 1em 2em;
+        border-radius: 4px;
+        /* display: flex;
+    justify-content: center; */
+      }
+      .modal:target {
+        visibility: visible;
+        opacity: 1;
+      }
+      .box-close {
+        position: absolute;
+        top: 0;
+        right: 15px;
+        color: #000000;
+        text-decoration: none;
+        font-size: 25px;
+        font-family: "Poppions", sans-serif;
+        z-index: 5;
+      }
+
+      .content input {
+        border-radius: 30px 30px 30px 30px;
+        margin: 10px;
+        width: 195px;
+        height: 35px;
+        border: none;
+        background-color: white;
+        text-align: center;
+        box-shadow: -2px 2px 1px 1px;
+        font-family: "Poppions", sans-serif;
+      }
+    </style>
+    <style>
+      .form-container {
+        width: 100vw;
+        height: 100vh;
+        background-color: #7b2cbf;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .upload-files-container {
+        background-color: #f7fff7;
+        width: 420px;
+        padding: 30px 60px;
+        border-radius: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 10px 20px,
+          rgba(0, 0, 0, 0.28) 0px 6px 6px;
+      }
+      .drag-file-area {
+        border: 2px dashed #7b2cbf;
+        border-radius: 40px;
+        margin: 10px 0 15px;
+        padding: 30px 50px;
+        width: 350px;
+        text-align: center;
+      }
+      .drag-file-area .upload-icon {
+        font-size: 50px;
+      }
+      .drag-file-area h3 {
+        font-size: 26px;
+        margin: 15px 0;
+      }
+      .drag-file-area label {
+        font-size: 19px;
+      }
+      .drag-file-area label .browse-files-text {
+        color: #7b2cbf;
+        font-weight: bolder;
+        cursor: pointer;
+      }
+      .browse-files span {
+        position: relative;
+        top: -25px;
+      }
+      .default-file-input {
+        opacity: 0;
+      }
+      .cannot-upload-message {
+        background-color: #ffc6c4;
+        font-size: 17px;
+        display: flex;
+        align-items: center;
+        margin: 5px 0;
+        padding: 5px 10px 5px 30px;
+        border-radius: 5px;
+        color: #bb0000;
+        display: none;
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      .cannot-upload-message span,
+      .upload-button-icon {
+        padding-right: 10px;
+      }
+      .cannot-upload-message span:last-child {
+        padding-left: 20px;
+        cursor: pointer;
+      }
+      .file-block {
+        color: #f7fff7;
+        background-color: #7b2cbf;
+        transition: all 1s;
+        width: 390px;
+        position: relative;
+        display: none;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 0 15px;
+        padding: 10px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+      }
+      .file-info {
+        display: flex;
+        align-items: center;
+        font-size: 15px;
+      }
+      .file-icon {
+        margin-right: 10px;
+      }
+      .file-name,
+      .file-size {
+        padding: 0 3px;
+      }
+      .remove-file-icon {
+        cursor: pointer;
+      }
+      .progress-bar {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        left: 4.5%;
+        width: 0;
+        height: 5px;
+        border-radius: 25px;
+        background-color: #4bb543;
+      }
+      .upload-button {
+        font-family: "Montserrat";
+        background-color: #7b2cbf;
+        color: #f7fff7;
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        border: none;
+        border-radius: 20px;
+        margin: 10px;
+        padding: 7.5px 50px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
     <div class="profile">
-        <div class="circle">
-            <img src="male-icon.png" alt="icon" srcset="">
-        </div>
-        
-        <span>Username</span>
+      <div class="circle">
+        <img src="male-icon.png" alt="icon" srcset="" />
+      </div>
+
+      <span>Username</span>
     </div>
     <div class="collection">
-        <div class="file-container" id="file1">
-            <img src="open-folder-outline-icon.png" alt="folder" >
-            <span>file1</span>
-        </div>
-        <div class="file-container" id="file2">
-            <img src="open-folder-outline-icon.png" alt="folder" >
-            <span>file1</span>
-        </div>
-        <div class="file-container" id="file3">
-            <img src="open-folder-outline-icon.png" alt="folder" >
-            <span>file1</span>
-        </div>
-        <div class="file-container" id="file4">
-            <img src="open-folder-outline-icon.png" alt="folder" >
-            <span>file1</span>
-        </div>
-        <div class="file-container" id="file5">
-            <img src="open-folder-outline-icon.png" alt="folder" >
-            <span>file1</span>
-        </div>
-        <div class="file-container" id="file5">
-            <img src="open-folder-outline-icon.png" alt="folder" >
-            <span>file1</span>
-        </div>
-        <div class="file-container" id="file5">
-            <img src="open-folder-outline-icon.png" alt="folder" >
-            <span>file1</span>
-        </div>
-        <div class="file-container" id="file5">
-            <img src="open-folder-outline-icon.png" alt="folder" >
-            <span>file1</span>
-        </div>
-        <div class="file-container" id="file5">
-            <img src="open-folder-outline-icon.png" alt="folder" >
-            <span>file1</span>
-        </div>
-        <div class="file-container" id="file5">
-            <img src="open-folder-outline-icon.png" alt="folder" >
-            <span>file1</span>
-        </div>
-        <div class="file-container" id="file5">
-            <img src="open-folder-outline-icon.png" alt="folder" >
-            <span>file1</span>
-        </div>
-        <div class="file-container" id="file5">
-            <img src="open-folder-outline-icon.png" alt="folder" >
-            <span>file1</span>
-        </div>
-        <div class="file-container" id="file5">
-            <img src="open-folder-outline-icon.png" alt="folder" >
-            <span>file1</span>
-        </div>
-        <div class="file-container" id="file5">
-            <img src="open-folder-outline-icon.png" alt="folder" >
-            <span>file1</span>
-        </div>
-        <div class="file-container" id="file5">
-            <img src="open-folder-outline-icon.png" alt="folder" >
-            <span>file1</span>
-        </div>
-        <div class="file-container" id="file5">
-            <img src="open-folder-outline-icon.png" alt="folder" >
-            <span>file1</span>
-        </div>
-        <div class="file-container" id="file5">
-            <img src="open-folder-outline-icon.png" alt="folder" >
-            <span>file1</span>
-        </div>
-        <div class="file-container" id="file5">
-            <img src="open-folder-outline-icon.png" alt="folder" >
-            <span>file1</span>
-        </div>
-        <div class="file-container" id="file5">
-            <img src="open-folder-outline-icon.png" alt="folder" >
-            <span>file1</span>
-        </div>
-        <div class="file-container" id="file5">
-            <img src="open-folder-outline-icon.png" alt="folder" >
-            <span>file1</span>
-        </div>
-        <div class="file-container" id="file5">
-            <img src="open-folder-outline-icon.png" alt="folder" >
-            <span>file1</span>
-        </div>
+      <div class="file-container" id="file5">
+        <img src="open-folder-outline-icon.png" alt="folder" />
+        <span>file1</span>
+      </div>
     </div>
-    <div class="addButton">
-        <button>+  Add</button>
+    <div id="add">
+      <a class="addButton" href="#popup-box">+ Add</a>
     </div>
-</body>
+    <div id="popup-box" class="modal">
+      <div class="content">
+        
+        <link
+          href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined"
+          rel="stylesheet"
+        />
+        <form class="form-container" enctype="multipart/form-data">
+          <a href="#" class="box-close"> x </a>
+          <div class="upload-files-container">
+            <div class="drag-file-area">
+              <span class="material-icons-outlined upload-icon">
+                file_upload
+              </span>
+              <h3 class="dynamic-message">Drag & drop any file here</h3>
+              <label class="label">
+                or
+                <span class="browse-files">
+                  <input type="file" class="default-file-input" />
+                  <span class="browse-files-text">browse file</span>
+                  <span>from device</span>
+                </span>
+              </label>
+            </div>
+            <span class="cannot-upload-message">
+              <span class="material-icons-outlined">error</span> Please select a
+              file first
+              <span class="material-icons-outlined cancel-alert-button"
+                >cancel</span
+              >
+            </span>
+            <div class="file-block">
+              <div class="file-info">
+                <span class="material-icons-outlined file-icon"
+                  >description</span
+                >
+                <span class="file-name"> </span> |
+                <span class="file-size"> </span>
+              </div>
+              <span class="material-icons remove-file-icon">delete</span>
+              <div class="progress-bar"></div>
+            </div>
+            <button type="button" class="upload-button">Upload</button>
+          </div>
+        </form>
+        
+      </div>
+    </div>
+    <script></script>
+  </body>
 </html>
