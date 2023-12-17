@@ -7,7 +7,7 @@ Router.use(express.static(__dirname + "/public"));
 
 Router.get('/', (req, res)=>{
     console.log("new connection");
-    res.render(__dirname + "/public/index.ejs");
+    res.render(__dirname + "/public/main.ejs");
 });
 
 
