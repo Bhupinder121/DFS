@@ -286,7 +286,7 @@
           href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined"
           rel="stylesheet"
         />
-        <form class="form-container" enctype="multipart/form-data">
+        <form class="form-container" action="/upload" method="post" enctype="multipart/form-data">
           <div class="upload-files-container">
             <span class="box-close material-icons-outlined cancel-alert-button"
                 >cancel</span
@@ -299,7 +299,7 @@
               <label class="label">
                 or
                 <span class="browse-files">
-                  <input type="file" class="default-file-input" />
+                  <input name="file" type="file" class="default-file-input" />
                   <span class="browse-files-text">browse file</span>
                   <span>from device</span>
                 </span>
@@ -323,7 +323,7 @@
               <span class="material-icons remove-file-icon">delete</span>
               <div class="progress-bar"></div>
             </div>
-            <button type="button" class="upload-button">Upload</button>
+            <button type="submit" class="upload-button">Upload</button>
           </div>
         </form>
       </div>
