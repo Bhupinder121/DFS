@@ -1,0 +1,21 @@
+version: "3"
+services:
+  web:
+    image: "phpmyadmin"
+    depends_on:
+      - db
+    environment:
+      PMA-HOST: db
+      PMA-USER: root
+      PMA-PASSWORD: "root"
+    ports:
+     - "8089:80"
+  db:
+    image: "mysql:5.7"
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+    volumes:
+      - "./testdb:/var/lib/mysql"
+
+
+    
