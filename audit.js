@@ -1,5 +1,6 @@
 // Load requirements
-var http = require('http'),
+var http = require('http');
+var mongo = require('mongodb');
 io = require('socket.io');
 
 // Create server & socket
@@ -11,6 +12,16 @@ io = io(server);
 io.sockets.on('connection', function(socket)
 {
   console.log('Client connected.');
+  socket.emit("init", "init");
+  socket.on("ack", (msg)=>{
+    console.log("new node added");
+  }); 
+
+  socket.on("dbs", (dbs)=>{
+    console.log(dbs);
+  });
+
+  
 
   // Disconnect listener
   socket.on('disconnect', function() {
