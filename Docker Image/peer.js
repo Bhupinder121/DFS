@@ -1,11 +1,14 @@
 import { io } from "socket.io-client";
 import dotenv from "dotenv";
 import DbConnection from "./database.js";
-// Connect to server
+import { v4 as uuidv4 } from 'uuid'
 
 dotenv.config();
 
-var socket = io.connect("http://localhost:8080", { reconnect: true });
+const id = uuidv4();
+
+
+var socket = io.connect(`http://${process.env.IP}:${process.env.PORT}`, { reconnect: true });
 
 // Add a connect listener
 socket.on("connect", function (socket) {
@@ -19,8 +22,8 @@ socket.on("init", (msg) => {
     process.env.USER,
     process.env.PASSWORD
   );
-  
-  socket.emit("ack", "connection is established");
+  console.log("database intiztize");
+  socket.emit("ack", id);
 });
 
 

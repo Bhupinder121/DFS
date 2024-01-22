@@ -1,5 +1,15 @@
 version: "3"
 services:
+  api:
+    image: "test"
+    depends_on:
+      - web
+    environment:
+      HOST: db
+      USER: root
+      PASSWORD: "root"
+      IP: "192.168.1.103"
+      PORT: "8080"
   web:
     image: "phpmyadmin"
     depends_on:
